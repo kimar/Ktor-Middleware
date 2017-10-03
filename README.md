@@ -8,16 +8,16 @@
 
 ```java
 <dependency>
-	<groupId>io.kida</groupId>
+	<groupId>com.github.kimar</groupId>
         <artifactId>Ktor-Middleware</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.1.0</version>
 </dependency>
 ```
 
 ### build.gradle
 
 ```java
-compile 'com.github.kimar:Ktor-Middleware:1.0-SNAPHSHOT'
+compile 'com.github.kimar:Ktor-Middleware:0.1.0'
 ```
 
 ### Usage
