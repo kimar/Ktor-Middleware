@@ -14,14 +14,31 @@
 
 ### Usage
 
-Inside your route handler:
+#### Inside your route handler
+
+Let's assume you've got an `upload` route you'd like to secure using `BearerAuthentication`, one way would be to install this routing using `Ktor-Middleware` which will then, in turn, automatically filter all failed middlewares and report and error accordingly, e.g.:
 
 ```java
-post("upload") {
-	Middleware.evaluate(this, listOf(BearerAuthentication("secret_token"))) {
-		call.resondText("Successfully authenticated")
-	}, {
-		call.respondText(it.gsonify(), ContentType.Application.Json)
+
+fun Application.module() {
+	...
+	install(Routing) {
+		upload(listOf(BearerAuthentication("secret_token"))
 	}
+}
+
+fun Routing.upload(middlewares: List<Middleware<Unit, HttpStatus>>): Route {
+    return post("upload") {
+
+        val result = Middlewares.evaluate(this, middlewares)
+        when(result.success) {
+            true -> success(call)
+            else -> call.respondText(result.result!!.gsonify(), ContentType.Application.Json)
+        }
+    }
+}
+
+private fun success(call: ApplicationCall) {
+	...
 }
 ```
