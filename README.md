@@ -4,7 +4,7 @@
 
 ### Installation
 
-```
+```java
 <dependency>
 	<groupId>io.kida</groupId>
         <artifactId>Ktor-Middleware</artifactId>
@@ -16,7 +16,7 @@
 
 Inside your route handler:
 
-```
+```java
 post("upload") {
 	Middleware.evaluate(this, BearerAuthentication("secret_token")) {
 		call.resondText("Successfully authenticated")
