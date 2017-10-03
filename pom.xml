@@ -87,4 +87,11 @@
         </plugins>
     </build>
 
+    <repositories>
+        <repository>
+            <id>ktor</id>
+            <url>http://dl.bintray.com/kotlin/ktor</url>
+        </repository>
+    </repositories>
+
 </project>
