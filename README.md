@@ -18,7 +18,7 @@ Inside your route handler:
 
 ```java
 post("upload") {
-	Middleware.evaluate(this, BearerAuthentication("secret_token")) {
+	Middleware.evaluate(this, listOf(BearerAuthentication("secret_token"))) {
 		call.resondText("Successfully authenticated")
 	}, {
 		call.respondText(it.gsonify(), ContentType.Application.Json)
