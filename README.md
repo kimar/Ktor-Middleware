@@ -4,12 +4,20 @@
 
 ### Installation
 
+### pom.xml
+
 ```java
 <dependency>
 	<groupId>io.kida</groupId>
         <artifactId>Ktor-Middleware</artifactId>
         <version>1.0-SNAPSHOT</version>
 </dependency>
+```
+
+### build.gradle
+
+```java
+compile 'com.github.kimar:Ktor-Middleware:1.0-SNAPHSHOT'
 ```
 
 ### Usage
