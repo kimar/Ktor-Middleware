@@ -1,8 +1,8 @@
-#Ktor-Middleware
+# Ktor-Middleware
 
-##A dead-simple middleware for Kotlin/Ktor
+## A dead-simple middleware for Kotlin/Ktor
 
-###Installation
+### Installation
 
 ```
 <dependency>
@@ -12,12 +12,11 @@
 </dependency>
 ```
 
-###Usage
+### Usage
 
 Inside your route handler:
 
 ```
-
 post("upload") {
 	Middleware.evaluate(this, BearerAuthentication("secret_token")) {
 		call.resondText("Successfully authenticated")
