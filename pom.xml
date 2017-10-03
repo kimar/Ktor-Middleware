@@ -5,7 +5,7 @@
 
     <groupId>io.kida</groupId>
     <artifactId>Ktor-Middleware</artifactId>
-    <version>0.2.1</version>
+    <version>0.2.2</version>
     <packaging>jar</packaging>
 
     <name>Ktor-Middleware</name>

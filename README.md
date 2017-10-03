@@ -10,14 +10,14 @@
 <dependency>
 	<groupId>com.github.kimar</groupId>
         <artifactId>Ktor-Middleware</artifactId>
-        <version>0.2.1</version>
+        <version>0.2.2</version>
 </dependency>
 ```
 
 ### build.gradle
 
 ```java
-compile 'com.github.kimar:Ktor-Middleware:0.2.1'
+compile 'com.github.kimar:Ktor-Middleware:0.2.2'
 ```
 
 ### Usage
