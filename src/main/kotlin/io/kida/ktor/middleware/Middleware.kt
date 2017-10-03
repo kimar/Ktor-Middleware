@@ -1,5 +1,6 @@
 package io.kida.ktor.middleware
 
+import io.kida.ktor.middleware.model.MiddlewareResult
 import org.jetbrains.ktor.pipeline.PipelineContext
 
 interface Middleware<T: Any, out U: Any> {
@@ -8,13 +9,13 @@ interface Middleware<T: Any, out U: Any> {
 
 class Middlewares {
     companion object {
-        suspend fun <T: Any, U: Any>evaluate(ctx: PipelineContext<T>, middlewares: List<Middleware<T, U>>, success: suspend () -> Unit, failure: suspend (status: U) -> Unit) {
+        suspend fun <T: Any, U: Any>evaluate(ctx: PipelineContext<T>, middlewares: List<Middleware<T, U>>): MiddlewareResult<U> {
             val results = middlewares.map { it.pass(ctx) }
             val failed = results.filter { it !== null }.count()
-            if (failed == 0) {
-                success()
+            return if (failed == 0) {
+                MiddlewareResult(true, null)
             } else {
-                failure(results.first()!!)
+                MiddlewareResult(false, results.first()!!)
             }
         }
     }

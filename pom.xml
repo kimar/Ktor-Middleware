@@ -45,6 +45,11 @@
             <artifactId>ktor-core</artifactId>
             <version>${ktor.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlinx</groupId>
+            <artifactId>kotlinx-coroutines-core</artifactId>
+            <version>RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
