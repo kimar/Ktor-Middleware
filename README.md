@@ -38,10 +38,10 @@ fun Application.module() {
 fun Routing.upload(middlewares: List<Middleware<Unit, HttpStatus>>): Route {
     return post("upload") {
 
-        val result = middlewares.evaluate(this)
-        when(result.success) {
+        val eval = middlewares.evaluate(this)
+        when(eval.success) {
             true -> success(call)
-            else -> call.respondText(result.result!!.gsonify(), ContentType.Application.Json)
+            else -> call.respondText(eval.result!!.gsonify(), ContentType.Application.Json)
         }
     }
 }
